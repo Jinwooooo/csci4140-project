@@ -19,6 +19,8 @@ var sloan = {
   cRate: 5,
   cDmg: 50,
   agi: 0,
+  extra: false,
+  extraDmg: null,
   permDmgReduc: 0,
   addDmgReduc: 0,
   immunity: [false, false, false, false],
@@ -41,6 +43,8 @@ var cordelia = {
   cRate: 7.5,
   cDmg: 7.5,
   agi: 0,
+  extra: true,
+  extraDmg: ["self", "atk", 50],
   permDmgReduc: 0,
   addDmgReduc: 0,
   immunity: [false, false, false, false],
@@ -204,13 +208,34 @@ function modifyStatOnSupport(support, receiver) {
   }
 }
 
-function calcDmgDone(unit) {
-  var normalNoCrit = unit['currentAtk'];
-  var normalCrit = unit['currentAtk'] * (((100 + (100 + unit["cDmg"])) / 100));
-  var extraNoCrit = unit['currentAtk'];
-  var extraCrit = unit['currentAtk'] * (((100 + (100 + unit["cDmg"])) / 100));
+function calcDmgDone(main, target) {
+  var normalNoCrit = main["currentAtk"];
+  var normalCrit = main["currentAtk"] * (((100 + (100 + main["cDmg"])) / 100));
+  var extraNoCrit = 0;
+  var extraCrit = 0;
 
-  return [normalNoCrit, normalCrit, extraNoCrit, extraCrit]
+  if(main["extra"] == true) {
+    if(main["extraDmg"][0] == "self") {
+      switch(main["extraDmg"][1]) {
+        case "atk":
+          extraNoCrit = main["currentAtk"] * (main["extraDmg"][2] / 100);
+          extraCrit = (main["currentAtk"] * (main["extraDmg"][2]) / 100) * (((100 + (100 + main["cDmg"])) / 100));
+          break;
+        case "hp":
+          extraNoCrit = main["maxHp"] * (main["extraDmg"][2] / 100);
+          extraCrit = (main["maxHp"] * (main["extraDmg"][2]) / 100) * (((100 + (100 + main["cDmg"])) / 100));
+          break;
+        case "def":
+          extraNoCrit = main["def"] * (main["extraDmg"][2] / 100);
+          extraCrit = (main["def"] * (main["extraDmg"][2]) / 100) * (((100 + (100 + main["cDmg"])) / 100));
+          break;
+      }
+    } else if(main["extraDmg"][0] == "target") {
+      extraNoCrit = target["currentHp"] * (main["extraDmg"][2] / 100);
+      extraCrit = (main["currentAtk"] * (main["extraDmg"][2] / 100)) * (((100 + (100 + main["cDmg"])) / 100));
+    }
+  }
+  return [normalNoCrit, normalCrit, extraNoCrit, extraCrit];
 }
 
 function calcDmgReceived(unit, dmgList) {
