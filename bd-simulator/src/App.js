@@ -1,15 +1,13 @@
 import React from 'react';
-// import './App.css';
 
 import { Client } from 'boardgame.io/react';
 import { Game } from 'boardgame.io/core';
 import { AI } from 'boardgame.io/ai';
 
-class TicTacToeBoard extends React.Component {
+class bdBoard extends React.Component {
   onClick(id) {
     if (this.isActive(id)) {
       this.props.moves.clickCell(id);
-      // this.props.events.endTurn();
     }
   }
 
@@ -37,7 +35,7 @@ class TicTacToeBoard extends React.Component {
     for (let i = 0; i < 3; i++) {
       let cells = [];
       for (let j = 0; j < 6; j++) {
-        const id = 3 * i + j;
+        const id = (6 * i) + j;
         cells.push(
           <td style={cellStyle} key={id} onClick={() => this.onClick(id)}>
             {this.props.G.cells[id]}
@@ -47,18 +45,19 @@ class TicTacToeBoard extends React.Component {
       tbody.push(<tr key={i}>{cells}</tr>);
     }
 
-    let ebody = [];
-    for (let i = 0; i < 3; i++) {
-      let cells = [];
-      for (let j = 0; j < 6; j++) {
-        const id = 3 * i + j;
-        cells.push(
-          <td style={cellStyle} key={id} onClick={() => this.onClick(id)}>
-            {this.props.G.cells[id]}
+    let eBody = [];
+    for (let i = 3; i < 6; i++) {
+      let eCells = [];
+      for (let j = 6; j < 12; j++) {
+        const eId = (6 * i) + j;
+        console.log(eId);
+        eCells.push(
+          <td style={cellStyle} key={eId} onClick={() => this.onClick(eId)}>
+            {this.props.G.cells[eId]}
           </td>
         );
       }
-      ebody.push(<tr key={i}>{cells}</tr>);
+      eBody.push(<tr key={i}>{eCells}</tr>);
     }
 
     return (
@@ -67,7 +66,7 @@ class TicTacToeBoard extends React.Component {
           <p> Ally </p>
           <tbody>{tbody}</tbody>
           <p> Enemy </p>
-          <tbody>{ebody}</tbody>
+          <tbody>{eBody}</tbody>
         </table>
         {winner}
       </div>
@@ -80,13 +79,13 @@ function IsDraw(cells) {
   return cells.filter(c => c === null).length == 0;
 }
 
-const TicTacToe = Game({
+const bd = Game({
   setup: () => ({ cells: Array(18).fill(null) }),
 
   moves: {
     clickCell(G, ctx, id) {
-      // Ensure that we can't overwrite cells.
-      if (G.cells[id] === null) {
+      console.log(id);
+      if(G.cells[id] === null) {
         G.cells[id] = "X";
       }
     },
@@ -102,8 +101,8 @@ const TicTacToe = Game({
 });
 
 const App = Client({
-  game: TicTacToe,
-  board: TicTacToeBoard,
+  game: bd,
+  board: bdBoard,
 
   ai: AI({
     // TO DO

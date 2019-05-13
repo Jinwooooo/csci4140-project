@@ -7,9 +7,34 @@
 	<title>Browndust Calculator</title>
 </head>
 <body>
-	<header>
-	</header>
+	<div class="unit-setting-wrapper">
+		<div class="unit-wrapper">
+			<h2>Unit Settings</h2>
+		</div>
+		<div class="rune-wrapper">
+			<h2>Rune Settings</h2>
+			<p>Flat Assault  <input type="text" class="rune-input" id="rune-flat-assault" value=""/></p>
+			<p>% Assault  <input type="text" class="rune-input" id="rune-perc-assault" value=""/></p>
+			<p>Flat Vital  <input type="text" class="rune-input" id="rune-flat-vital" value=""/></p>
+			<p>% Vital  <input type="text" class="rune-input" id="rune-perc-vital" value=""/></p>
+			<p>Fatal  <input type="text" class="rune-input" id="rune-fatal" value=""/></p>
+			<p>Rage  <input type="text" class="rune-input" id="rune-rage" value=""/></p>
+			<p>Armor  <input type="text" class="rune-input" id="rune-armor" value=""/></p>
+			<input type="button" id="update-rune" value="Update Rune"/>
+		</div>
+		<div class="sg-wrapper">
+			<h2>SG (Soul Gear) Settings</h2>
+			<p>Weapon <input type="checkbox" id="sg-weapon"/></p>
+			<p>Armor <input type="checkbox" id="sg-armor"/></p>
+			<p>Totem <input type="checkbox" id="sg-totem"/></p>
+		</div>
+		<div class="support-wrapper">
+			<h2>Support Settings</h2>
 
+		</div>
+	</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
 </body>
 </html>

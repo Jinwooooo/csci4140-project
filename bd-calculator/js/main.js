@@ -1,3 +1,32 @@
+$(document).ready(function() {
+  var runeFlatAssault = $('#rune-flat-assault');
+  var runePercAssault = $('#rune-perc-assault');
+  var runeFlatVital = $('#rune-flat-vital');
+  var runePercVital = $('#rune-perc-vital');
+  var runeFatal = $('#rune-fatal');
+  var runeRage = $('#rune-rage');
+  var runeArmor = $('#rune-armor');
+
+  var runeUpdate = $('#update-rune');
+
+  runeUpdate.click(function() {
+
+  });
+
+  var sgWeapon = $("#sg-weapon");
+  var sgArmor = $("#sg-armor");
+  var sgTotem = $("#sg-totem");
+
+  sgWeapon.click(function() {
+    if(sgWeapon.is(":checked")) {
+      // TODO
+    } else {
+      // TODO
+    }
+  });
+});
+
+
 // immunity: ['stat reduction', 'dot', 'attack interference', 'debuff']
 // prohibition: ['heal', 'buff']
 // dpsBuff: ["Attack", "Crit Rate", "Crit Dmg"]
