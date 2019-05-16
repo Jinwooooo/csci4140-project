@@ -420,9 +420,28 @@ $(document).ready(function() {
     var support5 = $("#unit-support-5" +  " option:selected").val();
 
     modifyStatOnSupport(unit, [support1, support2, support3, support4, support5]);
+
+    console.log(selectedUnit);
+    $("#unit-name").val(selectedUnit);
+    $("#unit-type").val(unit["type"]);
+    $("#unit-aoe").val(unit["range"]);
+    $("#unit-extra-1").val(unit["extra"]);
+
+    $("#stat-current-assault").val(unit["currentAtk"]);
+    $("#stat-base-assault").val(unit["atk"]);
+    $("#stat-flat-assault").val(unit["flatRuneAtk"]);
+    $("#stat-perc-assault").val(unit["percRuneAtk"]);
+    $("#stat-current-hp").val(unit["currentHp"]);
+    $("#stat-max-hp").val(unit["maxHp"]);
+    $("#stat-def").val(unit["def"]);
+    $("#stat-crit-rate").val(unit["cRate"]);
+    $("#stat-crit-dmg").val(unit["cDmg"]);
+    $("#stat-agi").val(unit["agi"]);
   });
 
-
+  $('#submit').click(function( {
+    // TODO send data to main
+  }));
 });
 
 // immunity: ['stat reduction', 'dot', 'attack interference', 'debuff']

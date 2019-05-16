@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+
+	<title>Browndust Calculator</title>
+</head>
+<body>
+	<div class="unit-setting-wrapper">
+		<div class="unit-selection-wrapper">
+			<h2>Select Unit</h2>
+			<input type="radio" name="unit-type-radio" class="unit-type" value="offense"> Offense<br>
+			<input type="radio" name="unit-type-radio" class="unit-type" value="defense"> Defense<br>
+			<input type="radio" name="unit-type-radio" class="unit-type" value="mage"> Mage<br><br>
+			<div id="unit-select-default" class="unit-select">
+				<select>
+					<option value="default">Choose Unit</option>
+				</select>
+			</div>
+			<div id="unit-select-offense" class="unit-select">
+				<select>
+					<option value="default">Choose Unit</option>
+					<option value="beatrix">Beatrice</option>
+					<option value="bran">Bran</option>
+					<option value="cordelia">Cordelia</option>
+					<option value="rignette">Rignette</option>
+					<option value="wiggle">Wiggle</option>
+				</select>
+			</div>
+			<div id="unit-select-defense" class="unit-select">
+				<select>
+					<option value="default">Choose Unit</option>
+					<option value="carlson">Carlson</option>
+					<option value="casey">Casey</option>
+					<option value="horan">Horan</option>
+					<option value="sloan">Sloan</option>
+					<option value="tiara">Tiara</option>
+				</select>
+			</div>
+			<div id="unit-select-mage" class="unit-select">
+				<select>
+					<option value="default">Choose Unit</option>
+				</select>
+			</div>
+		</div>
+		<div class="support-wrapper">
+			<h2>Support Settings</h2>
+			<div id="unit-support-1" class="unit-support">
+				<select>
+					<option value="default">Choose Unit</option>
+					<option value="arines">Arines</option>
+					<option value="asera">Asera</option>
+					<option value="clarice">Clarice</option>
+					<option value="edan">Edan</option>
+					<option value="hyeonwul">Hyeonwul</option>
+				</select>
+			</div>
+			<div id="unit-support-2" class="unit-support">
+				<select>
+					<option value="default">Choose Unit</option>
+					<option value="arines">Arines</option>
+					<option value="asera">Asera</option>
+					<option value="clarice">Clarice</option>
+					<option value="edan">Edan</option>
+					<option value="hyeonwul">Hyeonwul</option>
+				</select>
+			</div>
+			<div id="unit-support-3" class="unit-support">
+				<select>
+					<option value="default">Choose Unit</option>
+					<option value="arines">Arines</option>
+					<option value="asera">Asera</option>
+					<option value="clarice">Clarice</option>
+					<option value="edan">Edan</option>
+					<option value="hyeonwul">Hyeonwul</option>
+				</select>
+			</div>
+			<div id="unit-support-4" class="unit-support">
+				<select>
+					<option value="default">Choose Unit</option>
+					<option value="arines">Arines</option>
+					<option value="asera">Asera</option>
+					<option value="clarice">Clarice</option>
+					<option value="edan">Edan</option>
+					<option value="hyeonwul">Hyeonwul</option>
+				</select>
+			</div>
+			<div id="unit-support-5" class="unit-support">
+				<select>
+					<option value="default">Choose Unit</option>
+					<option value="arines">Arines</option>
+					<option value="asera">Asera</option>
+					<option value="clarice">Clarice</option>
+					<option value="edan">Edan</option>
+					<option value="hyeonwul">Hyeonwul</option>
+				</select>
+			</div>
+		</div>
+		<input type="button" id="submit-setting" value="Update Unit Information"/>
+	</div>
+
+	<div class="unit-info-wrapper">
+		<h1>Unit Information</h1>
+		<div class="unit-basic-info">
+			<h2>Unit Basic Information</h2>
+			<p>Unit Name <input type="text" class="basic-info" id="unit-name" value="" disabled/></p>
+			<p>Unit Type <input type="text" class="basic-info" id="unit-type" value="" disabled/></p>
+			<p>Unit AOE <input type="text" class="basic-info" id="unit-aoe" value="" disabled/></p>
+			<!-- <p>Unit Skill Level <input type="text" class="basic-info" id="unit-skill-level" value="" disabled/></p> -->
+			<p>Extra Hit Type 1 <input type="text" class="basic-info" id="unit-extra-1" value="" disabled/></p>
+		</div>
+		<div class="unit-stat">
+			<h2>Unit Stats</h2>
+			<p>Assault <input type="text" class="stat" id="stat-current-assault" value="" disabled/></p>
+			<p>HP	<input type="text" class="stat" id="stat-current-hp" value="" disabled/></p>
+			<p>Armor <input type="text" class="stat" id="stat-def" value="" disabled/></p>
+			<p>Critical Rate <input type="text" class="stat" id="stat-crit-rate" value="" disabled/></p>
+			<p>Critical Damage <input type="text" class="stat" id="stat-crit-dmg" value="" disabled/></p>
+			<p>Agility <input type="text" class="stat" id="stat-agi" value="" disabled/></p>
+		</div>
+		<input type="button" id="submit" value="Done"/>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="js/modify-setting.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
