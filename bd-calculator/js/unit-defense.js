@@ -46,7 +46,7 @@ var carlson = {
   prohibition: [false, false]
 };
 
-var cacey = {
+var casey = {
   type: "Defense",
   range: ["front", "B1"],
   atk: 560,
