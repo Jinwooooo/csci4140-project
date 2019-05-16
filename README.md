@@ -18,3 +18,7 @@ After downloading the folder and cwd is in 'bd-simulator'
 $ npm install
 $ npm start
 ```
+
+---
+
+The mechanics were a lot more complicated than I have expected and the simulation part required a lot more time than expected.
